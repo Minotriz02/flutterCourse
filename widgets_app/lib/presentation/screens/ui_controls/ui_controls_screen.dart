@@ -27,6 +27,9 @@ enum Transportation { car, plane, boat, submarine }
 class _UiControlsViewState extends State<_UiControlsView> {
   bool isDeveloper = true;
   Transportation selectedTransportation = Transportation.car;
+  bool wantsBreakfast = false;
+  bool wantsLunch = false;
+  bool wantsDinner = false;
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -40,41 +43,68 @@ class _UiControlsViewState extends State<_UiControlsView> {
             isDeveloper = !isDeveloper;
           }),
         ),
-        RadioListTile(
-          title: const Text('By Car'),
-          subtitle: const Text('Travel by car'),
-          value: Transportation.car,
-          groupValue: selectedTransportation,
-          onChanged: (value) => setState(() {
-            selectedTransportation = Transportation.car;
-          }),
+        ExpansionTile(
+          title: const Text('Transportation'),
+          subtitle: Text('$selectedTransportation'),
+          children: [
+            RadioListTile(
+              title: const Text('By Car'),
+              subtitle: const Text('Travel by car'),
+              value: Transportation.car,
+              groupValue: selectedTransportation,
+              onChanged: (value) => setState(() {
+                selectedTransportation = Transportation.car;
+              }),
+            ),
+            RadioListTile(
+              title: const Text('By Boat'),
+              subtitle: const Text('Travel by boat'),
+              value: Transportation.boat,
+              groupValue: selectedTransportation,
+              onChanged: (value) => setState(() {
+                selectedTransportation = Transportation.boat;
+              }),
+            ),
+            RadioListTile(
+              title: const Text('By Plane'),
+              subtitle: const Text('Travel by plane'),
+              value: Transportation.plane,
+              groupValue: selectedTransportation,
+              onChanged: (value) => setState(() {
+                selectedTransportation = Transportation.plane;
+              }),
+            ),
+            RadioListTile(
+              title: const Text('By Submarine'),
+              subtitle: const Text('Travel by submarine'),
+              value: Transportation.submarine,
+              groupValue: selectedTransportation,
+              onChanged: (value) => setState(() {
+                selectedTransportation = Transportation.submarine;
+              }),
+            ),
+          ],
         ),
-        RadioListTile(
-          title: const Text('By Boat'),
-          subtitle: const Text('Travel by boat'),
-          value: Transportation.boat,
-          groupValue: selectedTransportation,
-          onChanged: (value) => setState(() {
-            selectedTransportation = Transportation.boat;
-          }),
+        CheckboxListTile(
+          value: wantsBreakfast,
+          onChanged: ((value) => setState(() {
+                wantsBreakfast = !wantsBreakfast;
+              })),
+          title: const Text('Breakfast'),
         ),
-        RadioListTile(
-          title: const Text('By Plane'),
-          subtitle: const Text('Travel by plane'),
-          value: Transportation.plane,
-          groupValue: selectedTransportation,
-          onChanged: (value) => setState(() {
-            selectedTransportation = Transportation.plane;
-          }),
+        CheckboxListTile(
+          value: wantsLunch,
+          onChanged: ((value) => setState(() {
+                wantsLunch = !wantsLunch;
+              })),
+          title: const Text('Lunch'),
         ),
-        RadioListTile(
-          title: const Text('By Submarine'),
-          subtitle: const Text('Travel by submarine'),
-          value: Transportation.submarine,
-          groupValue: selectedTransportation,
-          onChanged: (value) => setState(() {
-            selectedTransportation = Transportation.submarine;
-          }),
+        CheckboxListTile(
+          value: wantsDinner,
+          onChanged: ((value) => setState(() {
+                wantsDinner = !wantsDinner;
+              })),
+          title: const Text('Dinner'),
         ),
       ],
     );
