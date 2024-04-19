@@ -19,7 +19,7 @@ final appRouter = GoRouter(
       name: CardScreen.name,
       builder: (context, state) => const CardScreen(),
     ),
-     GoRoute(
+    GoRoute(
       path: '/progress',
       name: ProgressScreen.name,
       builder: (context, state) => const ProgressScreen(),
@@ -48,6 +48,11 @@ final appRouter = GoRouter(
       path: '/infinite',
       name: InfiniteScrollScreen.name,
       builder: (context, state) => const InfiniteScrollScreen(),
+    ),
+    GoRoute(
+      path: '/counter-river',
+      name: CounterScreen.name,
+      builder: (context, state) => const CounterScreen(),
     ),
   ],
 );
