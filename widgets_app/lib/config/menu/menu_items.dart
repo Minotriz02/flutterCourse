@@ -15,6 +15,11 @@ class MenuItem {
 
 const appMenuItems = <MenuItem>[
   MenuItem(
+      title: 'Riverpod Counter',
+      subTitle: 'Introduccion a riverpod',
+      link: '/counter-river',
+      icon: Icons.add_rounded),
+  MenuItem(
       title: 'Botones',
       subTitle: 'Varios botones en Flutter',
       link: '/buttons',
@@ -24,4 +29,39 @@ const appMenuItems = <MenuItem>[
       subTitle: 'Un contenedor estilizado',
       link: '/cards',
       icon: Icons.credit_card),
+  MenuItem(
+      title: 'Progress Indicators',
+      subTitle: 'Generales y controlados',
+      link: '/progress',
+      icon: Icons.refresh_rounded),
+  MenuItem(
+      title: 'Snackbar y dialogos',
+      subTitle: 'Indicadores de pantalla',
+      link: '/snackbar',
+      icon: Icons.info_outline),
+  MenuItem(
+      title: 'Animated Container',
+      subTitle: 'Stateful widget animado',
+      link: '/animated',
+      icon: Icons.check_box_outline_blank_rounded),
+  MenuItem(
+      title: 'UI Controls + Tiles',
+      subTitle: 'Una serie de controles de Flutter',
+      link: '/ui-controls',
+      icon: Icons.car_rental_outlined),
+  MenuItem(
+      title: 'Introducción a la app',
+      subTitle: 'Tutorial introductorio',
+      link: '/tutorial',
+      icon: Icons.accessible_rounded),
+  MenuItem(
+      title: 'InfiniteScroll y Pull',
+      subTitle: 'Listas infinitas y pull to refresh',
+      link: '/infinite',
+      icon: Icons.list_alt_rounded),
+  MenuItem(
+      title: 'Cambiar tema',
+      subTitle: 'Cambiar el tema de la app',
+      link: '/theme-changer',
+      icon: Icons.color_lens_outlined),
 ];
