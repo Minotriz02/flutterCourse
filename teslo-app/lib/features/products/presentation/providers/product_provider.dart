@@ -5,6 +5,7 @@ import 'products_repository_provider.dart';
 final productProvider = StateNotifierProvider.autoDispose
     .family<ProductNotifier, ProductState, String>((ref, productId) {
   final productsRepository = ref.watch(productsRepositoryProvider);
+
   return ProductNotifier(
       productsRepository: productsRepository, productId: productId);
 });
@@ -15,7 +16,9 @@ class ProductNotifier extends StateNotifier<ProductState> {
   ProductNotifier({
     required this.productsRepository,
     required String productId,
-  }) : super(ProductState(id: productId));
+  }) : super(ProductState(id: productId)) {
+    loadProduct();
+  }
 
   Future<void> loadProduct() async {
     try {
@@ -25,7 +28,9 @@ class ProductNotifier extends StateNotifier<ProductState> {
         product: product,
         isLoading: false,
       );
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
   }
 }
 
